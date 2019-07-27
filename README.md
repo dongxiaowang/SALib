@@ -1,4 +1,4 @@
-# WDSALib
+# SALib
 Libary for Selenium and Appium
 
 ##### 仓库设置  
