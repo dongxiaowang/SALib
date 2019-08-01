@@ -14,7 +14,7 @@ public class IETest extends BaseWebTest {
 
 
     /**
-     * 默认需要webdriver设置环境变量，若要手动传入webdriver的，需重写方法并设置。
+     * 默认需要webdriver设置环境变量，若要手动传入webdriver的路径，需重写方法并设置。
      *  .usingDriverExecutable(new File("path/to/my/IEDriver.exe")
      */
     @BeforeClass
