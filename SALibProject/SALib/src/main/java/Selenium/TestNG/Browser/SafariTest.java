@@ -1,23 +1,22 @@
-package Selenium.Junit.Browser;
+package Selenium.TestNG.Browser;
 
 import Selenium.Junit.Bases.BaseWebTest;
-import org.junit.BeforeClass;
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.firefox.GeckoDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.safari.SafariDriverService;
+import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
 
-public class FirefoxTest extends BaseWebTest {
-
+public class SafariTest extends BaseWebTest {
 
     /**
-     * 默认需要webdriver设置环境变量，若要手动传入webdriver的，需重写方法并设置。
-     *  .usingDriverExecutable(new File("path/to/my/FirefoxDriver.exe")
+     * 默认需要webdriver设置环境变量，safari浏览器不用。
+     *
      */
-    @BeforeClass
+    @BeforeSuite(alwaysRun = true)
     static public void createService() {
-        service = new GeckoDriverService.Builder()
+        service = new SafariDriverService.Builder()
                 .usingAnyFreePort()
                 .build();
         try {
@@ -27,8 +26,9 @@ public class FirefoxTest extends BaseWebTest {
         }
     }
 
+
     @Override
     protected Capabilities getCapabilities() {
-        return DesiredCapabilities.firefox();
+        return DesiredCapabilities.safari();
     }
 }
