@@ -1,4 +1,4 @@
-package appium.bases.Junit.Bases;
+package appium.Junit.Bases;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;

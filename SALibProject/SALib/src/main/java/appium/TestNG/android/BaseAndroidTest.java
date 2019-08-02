@@ -14,28 +14,23 @@
  * limitations under the License.
  */
 
-package appium.bases.Junit.ios;
+package appium.TestNG.android;
 
-import appium.bases.Junit.Bases.BaseAppTest;
-import io.appium.java_client.MobileElement;
+import appium.TestNG.Bases.BaseAppTest;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.ios.IOSElement;
+
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
-import io.appium.java_client.service.local.AppiumServiceBuilder;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.openqa.selenium.Capabilities;
 
-import java.net.InetAddress;
+
+import org.openqa.selenium.Capabilities;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.UnknownHostException;
 
-public class BaseIOSTest extends BaseAppTest {
-
+public class BaseAndroidTest extends BaseAppTest {
 
 
     /**
@@ -59,7 +54,7 @@ public class BaseIOSTest extends BaseAppTest {
     /**
      * Initialization. Overriding to empty block to test remote.
      */
-    @BeforeClass
+    @BeforeSuite(alwaysRun = true)
     public static void createService() {
 
         /* Use Service Builder for further configuration.
@@ -69,11 +64,10 @@ public class BaseIOSTest extends BaseAppTest {
 
         service = AppiumDriverLocalService.buildDefaultService();
         service.start();
-
-
     }
 
-    @Before
+
+    @BeforeClass
     public void createDriver() throws MalformedURLException {
 
         String urlstr = getRemoteUrl();
@@ -87,11 +81,12 @@ public class BaseIOSTest extends BaseAppTest {
                 throw new AppiumServerHasNotBeenStartedLocallyException(
                         "An appium server node is not started!");
             }else {
-                url = service.getUrl();
+               url = service.getUrl();
             }
         }
 
         Capabilities capabilities = getCapabilities();
-        if ((capabilities != null)||(url != null)) driver = new IOSDriver<>(service.getUrl(), getCapabilities());
+        if ((capabilities != null)||(url != null)) driver = new AndroidDriver<>(service.getUrl(), getCapabilities());
     }
+
 }

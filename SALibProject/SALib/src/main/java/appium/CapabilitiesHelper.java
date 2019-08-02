@@ -1,4 +1,4 @@
-package appium.bases;
+package appium;
 
 import io.appium.java_client.remote.AutomationName;
 import io.appium.java_client.remote.IOSMobileCapabilityType;

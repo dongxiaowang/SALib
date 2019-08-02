@@ -14,23 +14,23 @@
  * limitations under the License.
  */
 
-package appium.bases.Junit.android;
+package appium.Junit.ios;
 
-import appium.bases.Junit.Bases.BaseAppTest;
-import io.appium.java_client.android.AndroidDriver;
-
+import appium.Junit.Bases.BaseAppTest;
+import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
 
 import org.junit.Before;
 import org.junit.BeforeClass;
-
 import org.openqa.selenium.Capabilities;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class BaseAndroidTest extends BaseAppTest {
+
+public class BaseIOSTest extends BaseAppTest {
+
 
 
     /**
@@ -64,8 +64,9 @@ public class BaseAndroidTest extends BaseAppTest {
 
         service = AppiumDriverLocalService.buildDefaultService();
         service.start();
-    }
 
+
+    }
 
     @Before
     public void createDriver() throws MalformedURLException {
@@ -81,12 +82,11 @@ public class BaseAndroidTest extends BaseAppTest {
                 throw new AppiumServerHasNotBeenStartedLocallyException(
                         "An appium server node is not started!");
             }else {
-               url = service.getUrl();
+                url = service.getUrl();
             }
         }
 
         Capabilities capabilities = getCapabilities();
-        if ((capabilities != null)||(url != null)) driver = new AndroidDriver<>(service.getUrl(), getCapabilities());
+        if ((capabilities != null)||(url != null)) driver = new IOSDriver<>(service.getUrl(), getCapabilities());
     }
-
 }

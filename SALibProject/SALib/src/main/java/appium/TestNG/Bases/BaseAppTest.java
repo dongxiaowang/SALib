@@ -1,4 +1,4 @@
-package appium.bases.TestNG.Bases;
+package appium.TestNG.Bases;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
