@@ -51,12 +51,10 @@ public abstract class BaseWebTest {
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-            if (null == url)return;
-            driver = new RemoteWebDriver(url,
+            if (null != url)driver = new RemoteWebDriver(url,
                     getCapabilities());
         }else {
-            if (service==null)return;
-            driver = new RemoteWebDriver(service.getUrl(),
+            if (service!=null)driver = new RemoteWebDriver(service.getUrl(),
                     getCapabilities());
         }
     }
