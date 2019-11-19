@@ -33,13 +33,13 @@ Maven
 	<dependency>
 	    <groupId>com.github.dongxiaowang</groupId>
 	    <artifactId>SALib</artifactId>
-	    <version>1.1.6</version>
+	    <version>1.1.7</version>
 	</dependency>
 ```
   
 Gradle
 ```gradle
 dependencies {
-	        implementation 'com.github.dongxiaowang:SALib:1.1.6'
+	        implementation 'com.github.dongxiaowang:SALib:1.1.7'
 	}
 ```
