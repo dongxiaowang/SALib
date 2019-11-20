@@ -43,3 +43,23 @@ dependencies {
 	        implementation 'com.github.dongxiaowang:SALib:1.1.7'
 	}
 ```
+
+
+### 注意 Junit 和 testNG共存的情况
+
+maven 默认使用surefire插件版本为2.12.4
+```xml
+<plugin>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>2.12.4</version>
+</plugin>
+```
+使用Salib库是默认绑定testNG  
+应该更新为2.22.1或以上，会自动选择Junit或testNG
+```xml
+<plugin>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>2.22.1</version>
+</plugin>
+```
+
